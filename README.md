@@ -12,7 +12,15 @@ The SDK exposes **11 typed methods**, one per documented endpoint, each with a p
 
 ## Installation
 
-Maven:
+The SDK is not on Maven Central. Build it from source, which installs it in your local Maven repository:
+
+```sh
+git clone https://github.com/asindotdev/asin-java.git
+cd asin-java
+mvn -q install -DskipTests
+```
+
+Then add it to your project. Maven:
 
 ```xml
 <dependency>
@@ -22,7 +30,7 @@ Maven:
 </dependency>
 ```
 
-Gradle:
+Gradle, with `mavenLocal()` in your repositories:
 
 ```kotlin
 implementation("dev.asin:asin:0.1.0")
@@ -138,6 +146,20 @@ AsinClient client = AsinClient.builder()
 | `searchAmazon()` | GET `/search` | Amazon search results (up to 60, sponsored included), to find the ASIN of a product. Free, limited to 30 searches per hour. |
 | `trackProduct()` | POST `/products` | Adds an ASIN, an Amazon link or a short link (amzn.to, a.co…) to your watchlist. The first check runs in the background within seconds (che… |
 | `updateProduct()` | PATCH `/products/{id}` | Target price, drop alerts, check interval, or pause. Send only what changes. |
+
+## All Asin SDKs
+
+| SDK | Package | Install |
+| --- | --- | --- |
+| Node.js | [`@asindev/sdk`](https://www.npmjs.com/package/@asindev/sdk) | `npm install @asindev/sdk` |
+| Python | [`asindotdev`](https://pypi.org/project/asindotdev/) | `pip install asindotdev` |
+| Go | [`asin-go`](https://pkg.go.dev/github.com/asindotdev/asin-go) | `go get github.com/asindotdev/asin-go` |
+| .NET | [`Asin`](https://www.nuget.org/packages/Asin) | `dotnet add package Asin` |
+| Ruby | [`asindotdev`](https://rubygems.org/gems/asindotdev) | `gem install asindotdev` |
+| PHP | [`asindotdev/sdk`](https://packagist.org/packages/asindotdev/sdk) | `composer require asindotdev/sdk` |
+| Java | [`asin-java`](https://github.com/asindotdev/asin-java) | build from source, see its README |
+| CLI | [`@asindev/cli`](https://www.npmjs.com/package/@asindev/cli) | `npm install -g @asindev/cli` |
+| MCP server | [`@asindev/mcp`](https://www.npmjs.com/package/@asindev/mcp) | `npx -y @asindev/mcp` |
 
 ## License
 
